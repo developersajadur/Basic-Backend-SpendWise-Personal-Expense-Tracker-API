@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "1a4d215f-5ec7-463c-9ff3-975300ac49c6",
+		"name": "Spend Wise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39124117"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@gmail.com\",\n    \"password\": \"Test@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/users/register",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sajadur Rahman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/users/update",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Won Data By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/users/get-my-details",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"get-my-details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expense",
+			"item": [
+				{
+					"name": "Create Expense",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Grocery Shopping\",\n  \"amount\": 120.50,\n  \"category\": \"FOOD\",\n  \"type\": \"EXPENSE\",\n  \"note\": \"Bought weekly groceries from the local market\"\n}\n\n// {\n//   \"title\": \"Freelance Payment\",\n//   \"amount\": 1500,\n//   \"category\": \"INCOME\",\n//   \"type\": \"INCOME\",\n//   \"note\": \"Payment from client project\"\n// }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses/create",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Expense",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"note\": \"Payment from US client project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses/update/3c245175-ec9e-47be-846c-b0aa86d46f98",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses",
+								"update",
+								"3c245175-ec9e-47be-846c-b0aa86d46f98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expenses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "EXPENSE",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Freelance",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "FOOD",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expenses Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses/summary",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses/delete/3c245175-ec9e-47be-846c-b0aa86d46f98",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses",
+								"delete",
+								"3c245175-ec9e-47be-846c-b0aa86d46f98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expense By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/expenses/get/4545012f-93f4-4d83-8d39-c62ee95ff86a",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"expenses",
+								"get",
+								"4545012f-93f4-4d83-8d39-c62ee95ff86a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"itzmesojib@gmail.com\",\n    \"password\": \"Sojib@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LIVE_BASE_URL}}/users/auth/login",
+							"host": [
+								"{{LIVE_BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": ""
+		},
+		{
+			"key": "USER_TOKEN",
+			"value": ""
+		},
+		{
+			"key": "ADMIN_TOKEN",
+			"value": ""
+		},
+		{
+			"key": "LIVE_BASE_URL",
+			"value": ""
+		}
+	]
+}
