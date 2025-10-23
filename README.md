@@ -46,7 +46,7 @@ The API will run at **http://localhost:5000/api/v1**.
 
 ## API Endpoints  
 For easier testing and exploration, import the Postman collection:  
-👉 [Click here to download the Postman JSON](https://github.com/developersajadur/Backend-SpendWise-Personal-Expense-Tracker-API/blob/main/Spend%20Wise.postman_collection.json)
+👉 [Click here to download the Postman JSON](Spend-Wise.postman_collection.json)
 
 
 ### 1. Register User
